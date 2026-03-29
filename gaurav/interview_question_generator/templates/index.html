@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Question Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load Inter font for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Based Interview Question Generator</h1>
+            <p>Knowledge-based assistant to generate relevant interview questions</p>
+        </header>
+        
+        <main>
+            <!-- User input form mapped to the Rule Engine -->
+            <form action="/generate" method="POST" class="generator-form">
+                <div class="form-group">
+                    <label for="domain">Subject / Domain 📚</label>
+                    <select name="domain" id="domain" required>
+                        <option value="Any">Any Domain</option>
+                        <option value="DSA">Data Structures & Algorithms (DSA)</option>
+                        <option value="Java">Java</option>
+                        <option value="Python">Python</option>
+                        <option value="C">C</option>
+                        <option value="C++">C++</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="DBMS">Database Management System (DBMS)</option>
+                        <option value="OS">Operating System (OS)</option>
+                        <option value="CN">Computer Networks (CN)</option>
+                        <option value="Aptitude">Aptitude</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="level">Difficulty Level ⛰️</label>
+                    <select name="level" id="level" required>
+                        <option value="Any">Any Level</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Question Type ✍️</label>
+                    <select name="type" id="type" required>
+                        <option value="Any">Any Type</option>
+                        <option value="Theory">Theory</option>
+                        <option value="Coding">Coding / Practical</option>
+                        <option value="Scenario">Scenario-Based</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Generate Questions 🚀</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

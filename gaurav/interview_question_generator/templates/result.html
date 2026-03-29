@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Interview Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container result-container">
+        <header>
+            <h1>Generated Interview Questions</h1>
+            <p>Parameters used by the AI Knowledge-Based Engine:</p>
+            <div class="params-pills">
+                <span class="pill">Domain: {{ domain }}</span>
+                <span class="pill">Difficulty: {{ level }}</span>
+                <span class="pill">Type: {{ type_val }}</span>
+            </div>
+        </header>
+        
+        <main>
+            {% if questions %}
+                <ul class="question-list">
+                    {% for q in questions %}
+                        <li class="question-item">
+                            <div class="question-meta">
+                                <span class="meta-tag meta-domain">{{ q.domain }}</span>
+                                <span class="meta-tag meta-level">{{ q.level }}</span>
+                                <span class="meta-tag meta-type">{{ q.type }}</span>
+                            </div>
+                            <p class="question-text">{{ q.question }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="no-results">
+                    <p>No questions matched your specific rules.</p>
+                    <p>Try modifying your parameters!</p>
+                </div>
+            {% endif %}
+            
+            <a href="/" class="btn-back">← Go Back & Generate More</a>
+        </main>
+    </div>
+</body>
+</html>
